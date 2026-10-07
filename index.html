@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priti Adak - Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #f5f4ff;
+      --nav-bg: #1e3a5f;
+      --card-bg: #ffffff;
+      --primary-blue: #4a80e8;
+      --text-dark: #1f2937;
+      --text-muted: #6b7280;
+      --pill-bg: #dbeafe;
+      --pill-text: #2563eb;
+      --input-bg: #eef2f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: var(--nav-bg);
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-logo {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a2b4c;
+      margin-bottom: 8px;
+    }
+
+    .title-underline {
+      width: 40px;
+      height: 4px;
+      background-color: var(--primary-blue);
+      margin: 0 auto 40px;
+      border-radius: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 40px 0;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .sub-tag {
+      color: var(--primary-blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      line-height: 1.2;
+    }
+
+    .hero-text h1 span {
+      display: block;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin: 4px 0 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 16px;
+    }
+
+    .hero-description {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--primary-blue);
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 24px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(74, 128, 232, 0.3);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: #3b6ed6;
+      transform: translateY(-2px);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .profile-img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #e2e8f0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      background-color: #ffffff;
+    }
+
+    /* About Section */
+    .about-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      gap: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .journey-box {
+      background-color: #dbeafe;
+      border-radius: 16px;
+      padding: 40px 20px;
+      min-width: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--primary-blue);
+      font-weight: 800;
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+
+    .about-content h3 {
+      font-size: 1.3rem;
+      color: #1e293b;
+      margin-bottom: 16px;
+    }
+
+    .about-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    /* Skills Section */
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: -30px;
+      margin-bottom: 40px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .skill-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .skill-card h4 {
+      font-size: 1.1rem;
+      color: var(--primary-blue);
+      margin-bottom: 12px;
+    }
+
+    .skill-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .skills-footer-tags {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: #334155;
+    }
+
+    /* Projects Section */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px 30px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .project-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+    }
+
+    .project-details h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #1e293b;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .project-details p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tag {
+      background-color: var(--pill-bg);
+      color: var(--pill-text);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .projects-footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Goal Section */
+    .goal-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .goal-card h3 {
+      font-size: 1.2rem;
+      color: #1e293b;
+      max-width: 650px;
+      margin: 0 auto 20px;
+      line-height: 1.5;
+    }
+
+    .goal-pill {
+      display: inline-block;
+      background-color: var(--pill-bg);
+      color: var(--pill-text);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    /* Contact Form */
+    .contact-container {
+      max-width: 480px;
+    }
+
+    .contact-container h3 {
+      font-size: 1.5rem;
+      color: #1e293b;
+      margin-bottom: 6px;
+    }
+
+    .contact-container p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      background-color: var(--input-bg);
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-blue);
+      background-color: #ffffff;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    #form-response {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: #16a34a;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--nav-bg);
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    footer h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #d1d5db;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .connect-tag {
+      color: var(--primary-blue);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      margin-bottom: 16px;
+    }
+
+    footer h3 {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .footer-subtitle {
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin: 0 auto 28px;
+      }
+
+      .about-card {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="nav-logo">PRITI ADAK</a>
+    <ul class="nav-links">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <div class="sub-tag">STUDENT • WEB DEVELOPMENT LEARNER</div>
+        <h1>Hello, I'm <span>Priti Adak</span></h1>
+        <div class="hero-subtitle">Aspiring Web Developer & Creative Learner</div>
+        <p class="hero-description">
+          I am interested in web development, modern design, and practical technology. I enjoy building clean interfaces while improving my skills.
+        </p>
+        <a href="#projects" class="btn-primary">VIEW PROJECTS</a>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="https://i.postimg.cc/TPLtC7G6/IMG-20261007-WA0004.jpg" alt="Priti Adak" class="profile-img">
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="title-underline"></div>
+      <div class="about-card">
+        <div class="journey-box">
+          MY<br>JOURNEY
+        </div>
+        <div class="about-content">
+          <h3>A little about me</h3>
+          <p>I am a passionate student learning technology and front-end web development.</p>
+          <p>I am actively building skills in HTML, CSS, JavaScript, and responsive layout design.</p>
+          <p>My goal is to continue learning, work on practical real-world applications, and create engaging digital experiences.</p>
+          <a href="#contact" class="btn-primary" style="margin-top: 10px;">CONTACT ME</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">My Skills</h2>
+      <div class="title-underline"></div>
+      <p class="section-subtitle">Technologies and tools I am currently learning</p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h4>HTML</h4>
+          <p>Structuring semantic web pages.</p>
+        </div>
+        <div class="skill-card">
+          <h4>CSS</h4>
+          <p>Styling and creating responsive layouts.</p>
+        </div>
+        <div class="skill-card">
+          <h4>JavaScript</h4>
+          <p>Adding dynamic interactivity and logic.</p>
+        </div>
+        <div class="skill-card">
+          <h4>UI/UX Basics</h4>
+          <p>Designing user-friendly interfaces.</p>
+        </div>
+      </div>
+
+      <div class="skills-footer-tags">
+        HTML • CSS • JAVASCRIPT • UI/UX
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="title-underline"></div>
+
+      <div class="projects-list">
+        <div class="project-card">
+          <div class="project-number">01</div>
+          <div class="project-details">
+            <h3>PERSONAL PORTFOLIO</h3>
+            <p>A modern responsive personal portfolio website built with HTML, CSS, and JavaScript.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JAVASCRIPT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-number">02</div>
+          <div class="project-details">
+            <h3>INTERACTIVE WEB APP</h3>
+            <p>A simple interactive browser utility focused on clean client-side logic and smooth performance.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JAVASCRIPT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="projects-footer">Practical projects created while mastering web technology.</p>
+    </section>
+
+    <!-- Goal Section -->
+    <section id="goal">
+      <h2 class="section-title">Future Goal</h2>
+      <div class="title-underline"></div>
+      <div class="goal-card">
+        <h3>To master modern front-end technologies, design impactful web applications, and continuously grow as a skilled developer.</h3>
+        <div class="goal-pill">KEEP LEARNING</div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-container">
+        <h3>Contact Me</h3>
+        <p>Feel free to reach out for project discussions or collaborative learning opportunities.</p>
+        <form id="contact-form" onsubmit="handleContact(event)">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">SEND MESSAGE</button>
+        </form>
+        <div id="form-response">Thank you! Your message has been sent successfully.</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <h2>THANK YOU</h2>
+    <p>Thank you for visiting my portfolio.</p>
+    <div class="connect-tag">LET'S CONNECT</div>
+    <h3>PRITI ADAK</h3>
+    <div class="footer-subtitle">Student • Web Development Learner</div>
+  </footer>
+
+  <script>
+    function handleContact(e) {
+      e.preventDefault();
+      document.getElementById('form-response').style.display = 'block';
+      document.getElementById('contact-form').reset();
+    }
+  </script>
+</body>
+</html>
